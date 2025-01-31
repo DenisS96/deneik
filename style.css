@@ -1,0 +1,223 @@
+/* --- Algemene Stijlen --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #fff;
+    text-align: center;
+    padding-top: 80px; /* Voorkomt overlap met de header */
+}
+
+/* --- Header & Navigatie --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background: rgba(51, 51, 51, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo_container img {
+    height: 75px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #f4a261;
+}
+
+/* --- Mobiel: Opklapbaar Rond Menu --- */
+.menu_icon {
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu_icon span {
+    display: block;
+    background: white;
+    height: 3px;
+    width: 30px;
+    margin: 6px auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Navigatie voor Mobiel --- */
+@media (max-width: 768px) {
+    .menu {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.9);
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        opacity: 0;
+        transform: translateY(-20px);
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    }
+
+    .menu.open {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    .menu li {
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .menu_icon {
+        display: block;
+    }
+
+    .menu_icon.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu_icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu_icon.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* --- Stijlen voor de Carousel --- */
+/* --- Stijlen voor de Carousel --- */
+.carousel_container {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Pas deze hoogte aan op basis van je afbeeldingen */
+}
+
+.carousel_slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel_slide.active {
+    opacity: 1;
+}
+
+.carousel_slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zorgt ervoor dat de afbeeldingen goed passen */
+    border-radius: 10px;
+}
+
+/* --- Knoppen voor de Carousel --- */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* --- Dots voor de Carousel --- */
+.carousel_dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* --- Tekst Onder Carousel --- */
+.main_text {
+    max-width: 800px;
+    margin: 30px auto;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
