@@ -63,3 +63,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryItems = document.querySelectorAll(".gallery_item");
+
+    galleryItems.forEach(item => {
+        item.addEventListener("click", () => {
+            const imgSrc = item.querySelector("img").src;
+            const lightbox = document.createElement("div");
+            lightbox.classList.add("lightbox");
+            lightbox.innerHTML = `
+                <div class="lightbox_content">
+                    <img src="${imgSrc}" alt="Lightbox Image">
+                    <span class="close">&times;</span>
+                </div>
+            `;
+            document.body.appendChild(lightbox);
+
+            // Sluit de lightbox bij klik op de sluitknop
+            lightbox.querySelector(".close").addEventListener("click", () => {
+                lightbox.remove();
+            });
+
+            // Sluit de lightbox bij klik buiten de afbeelding
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    lightbox.remove();
+                }
+            });
+        });
+    });
+});
