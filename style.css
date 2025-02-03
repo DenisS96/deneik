@@ -454,3 +454,85 @@ nav {
     color: white;
     cursor: pointer;
 }
+
+
+
+/* --- Footer Stijlen --- */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer_content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact_info, .address_info, .social_icons {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.contact_info h3, .address_info h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #f4a261; /* Accentkleur voor de titels */
+}
+
+.contact_info p, .address_info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact_info a, .address_info a {
+    color: #f4a261;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact_info a:hover, .address_info a:hover {
+    color: black;
+}
+
+.maps_link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgb(59, 43, 43);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.maps_link:hover {
+    background-color: #c58c87;
+}
+
+.social_icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social_icons a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social_icons a:hover {
+    color: #f4a261;
+}
+
+.social_icons svg {
+    width: 24px;
+    height: 24px;
+}
